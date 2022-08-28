@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'feature/auth/test/view/test_view.dart';
+import 'package:flutter_architecture_template/feature/auth/test/view/test_view.dart';
 
 void main() => runApp(const MyApp());
 
