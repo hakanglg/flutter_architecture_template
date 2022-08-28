@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'feature/auth/test/view/test_view.dart';
+
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -8,17 +10,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Material App',
-      theme: ThemeData.dark().copyWith(useMaterial3: true),
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Material App Bar'),
-        ),
-        body: const Center(
-          child: Text('Hello World'),
-        ),
-      ),
-    );
+        title: 'Material App',
+        theme: ThemeData.dark().copyWith(useMaterial3: true),
+        debugShowCheckedModeBanner: false,
+        home: const TestView());
   }
 }
