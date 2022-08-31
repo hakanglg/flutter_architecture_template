@@ -10,14 +10,23 @@ import 'package:provider/provider.dart';
 import 'core/init/navigation/navigation_route.dart';
 import 'core/init/notifier/provider_init.dart';
 
-void main() => runApp(MultiProvider(
-      providers: ProviderInit.instance.providers,
-      child: EasyLocalization(
-          supportedLocales: LanguageManager.instance.supportedLocales,
-          startLocale: LanguageManager.instance.startLocale,
-          path: ApplicationConstants.LANG_ASSETS_PATH,
-          child: const MyApp()),
-    ));
+Future<void> main() async {
+  await _init();
+  runApp(MultiProvider(
+    providers: ProviderInit.instance.providers,
+    child: EasyLocalization(
+        supportedLocales: LanguageManager.instance.supportedLocales,
+        startLocale: LanguageManager.instance.startLocale,
+        path: ApplicationConstants.LANG_ASSETS_PATH,
+        child: const MyApp()),
+  ));
+}
+
+Future<void> _init() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+  // await Firebase.initializeApp();
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
